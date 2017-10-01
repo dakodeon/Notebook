@@ -1,9 +1,0 @@
-* Synchronize Ndefs
-
-  Ndef.dictFor(s).do(_.quant = 1.0);
-  
-  Or, to make it default:
-  Ndef.dictFor(s).quant = 1.0;
-
-  Alternattive:
-  Ndef(\beat).proxyspace.quant = 1.0;

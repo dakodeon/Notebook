@@ -1,9 +1,0 @@
-* EMACS LISP FUNCTIONS
-
-concat: Concatenates two or more strings into one
-substring: Creates a substring from a string using two numbers as breaking points
-message: Prints a string as a message in the echo area. Uses %s %d and such
-set: Assigns a value to a symbol. Both value and symbol need to be quoted.
-setq: Same with set but does not need quote to the symbol. Also allows for multiple sets.
-
-
