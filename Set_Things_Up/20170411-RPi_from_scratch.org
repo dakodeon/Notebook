@@ -1,0 +1,34 @@
+* 2017-04-11
+
+** INSTALL RASPBIAN JESSIE LITE
+Download the latest image and flash it to an SD card using the dd command.
+For headless installation, open the SD card and create an empty file named =ssh=. This will enable SSH.
+First of: run apt-get update and apt-get upgrade
+Important things missing: rsync, git
+Then run raspi-config and enable SSH.
+
+** INSTALL EMACS 24.4
+wget http://gnu.mirrors.linux.ro/emacs/emacs-24.4.tar.gz
+tar -xzvf emacs-24.4.tar.gz
+cd emacs24.4
+./configure --- if there is an error about =tputs=, search in the apt cache for =libncurses= and install the latest dev version. Then configure again
+make
+sudo make install
+
+*** INSTALL PRELUDE
+mv .emacs.d .emacs.d.OLD
+git clone https://github.com/bbatsov/prelude.git .emacs.d
+Open emacs and let prelude do its thing
+
+** CONFIGURE PYTHON AND MODULES
+sudo apt-get install python-dev python3-dev
+*** INSTALL SPIDEV
+git clone https://github.com/doceme/py-spidev.git
+cd py-spidev
+make
+sudo make install
+Then run raspi-config and enable SPI.
+*** INSTALL PYOSC
+git clone https://github.com/ptone/pyosc.git
+cd pyosc
+sudo ./setup.py install

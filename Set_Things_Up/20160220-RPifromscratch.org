@@ -1,0 +1,78 @@
+* FRESH INSTALL OF LATEST RASPBIAN (JESSIE) ON RASPBERRY PI
+
+** DOWNLOAD AND FLASH THE IMAGE TO AN SD CARD
+
+Use the =dd= command
+
+** SETUP AS ACCESS POINT
+
+Followed all the steps in my github repo -- BUT:
+Using NL driver gets an error / it works with RTL
+RTL driver found here: http://adafruit-download.s3.amazonaws.com/adafruit_hostapd_14128.zip
+
+Didn't check this out due to lack of time
+
+-- Useful:
+Run =sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf= for useful info.
+
+-- During the setup there was a problem with ip routing. solved by doing:
+
+=sudo iptables -t nat -A POSTROUTING -j MASQUERADE=
+=sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"=
+
+Then add this to =/etc/rc.local= (before the exit statement):
+=iptables-restore < /etc/iptables.ipv4.nat=
+
+** LINUXBREW AND NODE.JS
+
+Follow the directions from the linuxbrew page on github:
+1. Install Debian dependencies
+2. Install linuxbrew with the ruby command
+3. Add what is needed to =.bashrc=
+4. Install node: =brew install node= (takes a lot of time)
+
+** MONGODB
+
+Clone this repo:
+https://github.com/svvitale/mongo4pi.git
+
+And run the script
+Then add =/opt/mongo/bin/= to your path.
+
+Note: this script adds a script to run mongod on startup. If you don't want mongodb to run on startup, remove it by:
+=sudo update-rc.d mongod remove=
+
+To start mongo manually, use the script: =sudo service mongod start=
+For some reason (didn't look at it), just running =mongod= with options doesn't work
+IMPORTANT: Before shutdown do: =sudo service mongod stop=, or else you could corrupt your database.
+
+** EMACS
+
+Just do: =sudo apt-get install emacs24=
+
+Then install prelude:
+1) Make backups of =.emacs= and =.emacs.d/=
+2) Clone the prelude repository (https://github.com/bbatsov/prelude.git) as =.emacs.d=: =git clone https://github.com/bbatsov/prelude.git .emacs.d=
+3) Then open emacs and let it install packages.
+4) If you have any configuration you want to keep from your original =.emacs= file, place it in a file named =init.el= (or anything else, really) in the folder =.emacs.d/personal=
+
+** PYTHON AND GPIO STUFF
+
+Python should be installed already.
+Install the pyOSC library:
+1. Get the code from github: https://github.com/ptone/pyosc.git
+2. Enter the folder and run =sudo ./setup.py install=
+
+** SUPERCOLLIDER
+
+Followed this guide: http://supercollider.github.io/development/building-raspberrypi.html
+but with errors:
+1. In the command =./waf configure --alsa= I had to remove =--alsa=
+2. Getting error: server failed to start. However scsynth is running. As it turns out, this is a problem related to ssh and the IP of the server. How to solve:
+- Open emacs in sclang mode: =emacs -sclang=
+- Make sure you are in the SC Workspace and type =Server=
+- With the cursor at the end of the line, type =C-c := to find definitions of the Server class. Open the first file.
+- Search the document for =addStatusWatcher=. Keep searching until you find the function.
+- Find the line that reads =}, '/status.reply', addr).fix;= and remove =addr=
+
+Now, sclang listens from every address. This is a temporary fix, as now you cannot have multiple servers.

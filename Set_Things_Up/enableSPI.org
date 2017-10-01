@@ -1,0 +1,58 @@
+1. Enable SPI from raspi-config
+2. Follow the tutorials step about modprobe (update when not bored)
+3. Install a version of py-spidev that works with kernels > 3.15
+
+* READINGS
+
+(sort out useful stuff when not bored)
+
+https://learn.adafruit.com/downloads/pdf/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi.pdf
+
+http://www.raspberrypi-spy.co.uk/2013/10/analogue-sensors-on-the-raspberry-pi-using-an-mcp3008/
+
+http://hertaville.com/2013/07/24/interfacing-an-spi-adc-mcp3008-chip-to-the-raspberry-pi-using-c/
+
+http://raspberrypi.stackexchange.com/questions/4814/mcp3008-raspberry-pi-and-spi
+
+https://www.youtube.com/watch?v=oW0mTwFck_c
+
+http://www.raspberrypi.org/forums/viewtopic.php?p=132128
+
+http://www.instructables.com/id/Preliminary-SPI-on-the-Pi-Communicating-with-a-/
+
+http://www.brianhensley.net/2012/07/getting-spi-working-on-raspberry-pi.html
+
+http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf (mcp3008 datasheet)
+
+http://tightdev.net/SpiDev_Doc.pdf
+
+https://github.com/frasmacon/RPiGPIOTutorials/blob/master/Tutorial03%20Analog%20Inputs/Tut03%20MCP3008.py (github of the same guy that does the tutorials on utube)
+
+http://raspberrypi.stackexchange.com/questions/27204/spidev-xfer2-in-python-gives-ioerror-errno-22-invalid-argument
+
+http://www.raspberrypi.org/forums/viewtopic.php?p=680726#p680726
+
+https://github.com/piface/libmcp23s17/issues/8
+
+https://projects.drogon.net/understanding-spi-on-the-raspberry-pi/
+
+https://pypi.python.org/pypi/spidev (this is where you download the working version of py-spidev -- I can't know if the other steps I did where nessecary for this to work -- will try in the new raspberry pi -- hooray!)
+
+* WARNING!
+
+Be warned! (Not 100% sure about this... but about 95%)
+After updating the kernel to enable spi, there is a chance that your usb wi-fi dongle stops working... (at least mine did, DWA-131).
+Apparently, there is a problem with the 3.18 kernel and the driver that the device is using, as this driver was included later on as a patch in the kernel, and also, the USB ID of the wifi was not included in the current driver (jeez..)
+Here how to get the driver edited:
+
+#+BEGIN_SRC sh
+wget https://dl.dropboxusercontent.com/u/80256631/8192cu-3.18.5-744.tar.gz
+tar -xzf 8192cu-3.18.5-744.tar.gz
+sudo install -p -m 644 8192cu.ko /lib/modules/3.18.5+/kernel/drivers/net/wireless/rtl8192cu
+sudo depmod 3.18.5+
+sudo insmod /lib/modules/3.18.5+/kernel/drivers/net/wireless/rtl8192cu/8192cu.ko
+#+END_SRC
+
+Thanks to MrEngman
+
+http://www.raspberrypi.org/forums/viewtopic.php?p=690350

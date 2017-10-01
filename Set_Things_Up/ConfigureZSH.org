@@ -1,0 +1,6 @@
+* INSTALL AND CONFIGURE ZSH
+
+sudo apt-get install zsh
+chsh -s $(which zsh) # this will make zsh default for the current user
+
+When you open the terminal you will be prompted with some options regarding .zshrc. Choose 2.

@@ -1,0 +1,27 @@
+meteor create <app name>
+
+clear client and server folders
+
+remove insecure and autopublish
+
+meteor remove <pack name>
+
+-- check installed packages
+
+blaze: default meteor template: remove, we will use react (???)
+
+npm install --save react react-dom => npm, just like node.js
+
+make folder: imports -- stuff that doesnt run, you have to import
+
+make file: client/main.html
+
+<head> and <body> with <div id="app">
+
+make file: client/main.js
+
+.jsx is react file
+
+flowrouter -- dominant router for meteor
+
+-- Read meteor structure!!!

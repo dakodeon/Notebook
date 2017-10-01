@@ -1,0 +1,5 @@
+* POWER ISSUES WITH THE RASPBERRY PI
+
+- RPi runs on 5V (with a variation of +- 0.25V) and at least (proposed) 750mA.
+- The more connected devices the more current you need, so instead of 750mA you might need 1A or more (probably not more than 1.2A).
+- To test if your Pi is powered adequately, measure the voltage between TP1 and TP2. If the voltage is below 4.75V, then you need to change the power supply

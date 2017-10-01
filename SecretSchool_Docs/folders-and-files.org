@@ -1,0 +1,55 @@
+* /home/pi/Dev/
+  Main developing folder
+** TheSecretSchool/
+   Main folder of the SecretSchool
+*** sc-kubik/webosc/
+    Main Server folder
+**** config.json
+     A .json file holding the OSC and HTTP ports that are used. This file is loaded in =index.js=
+**** index.js
+     The main Node.js server. Here are the functions that connect the TiddlyWiki page with SuperCollider and vice versa.
+**** public/
+     HTML, JavaScript and content material.
+***** index.html
+      The home page (rendered tiddlywiki page)
+***** PhotosGeorgia/
+****** georgia-web-selected/
+       Photos from Georgia.
+****** georgia-web-selected-thumbnails/
+       Thumbnails of the photos from Georgia.
+***** js/
+****** tiddlySocket.js
+       Contains a function that receives Socket.io messages from the server with information from SuperCollider, which alters the URL so that it contains a new tiddler
+***** videos/
+      Videos.
+***** georgia-mp3-cut/
+      Cut-ups from the Georgia interviews.
+*** piratebox/
+    PirateBox Server.
+**** chat.html
+     The file containing the chat entries. It is loaded into the chatroom.
+**** pbChat.js
+     Chat handling. Exports various functions that are called from the main server (e.g pbChat.post, pbChat.display etc).
+**** pbTemplates.js
+     Exports HTML fragments that are used to create the visble web site.
+**** oscConf.json
+     OSC ports.
+**** pbConfig.js
+     General configuration.
+**** piratebox.js
+     The main server of piratebox. It consists of a series of functions that create the web page, handle the chat and the uploaded files. It calls upon the files pbChat.js, pbConfig.js, pbTemplates.js. We added a function receiving OSC messages from SuperCollider and creating chat posts from them, as well as a function that emits chat posts in OSC form.
+**** web/
+     Material and client-side JavaScript.
+***** chat.js
+      Handling of the chat form. We added functionality to receive and decode the URL parameters passed from TiddlyWiki links.
+**** incoming/
+     Uploaded files.
+** secretschoolwiki/
+   Un-rendered version of the SecretSchool web page.
+*** index.html
+    The web page.
+*** pages/
+    Contains tiddlers and tiddlywiki.info file. Running and exporting tiddlywiki is done from here.
+
+* /home/pi/.config/SuperCollider
+  SuperCollider files.

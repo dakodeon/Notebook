@@ -1,0 +1,24 @@
+* SETUP AUDIO IN LINUX
+
+sudo apt-get install qjackctl
+
+Enable real-time priorities. Edit the file =/etc/security/limits.conf=.
+Add the following lines at the end, before the line that writes =# End of file=:
+
+<username>	 - 	 rtprio 	 99
+<username> 	 - 	 memlock	 unlimited
+<username>	 - 	 nice		 -10
+
+Just replace <username> with your own.
+
+sudo apt-get install pulseaudio-module-jack
+
+Edit the file =/etc/pulse/default.pa=. Find the section that is labeled as =### Load audio drivers statically= and at the bottom of this section add the following lines:
+load-module module-jack-sink
+load-module module-jack-source
+
+Kill pulseaudio
+
+=pkill pulseaudio=
+
+It will restart automatically, and start jack with it

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TidalOnWindows</title>
+<!-- 2015-03-07 Sat 02:26 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="zob203" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">TidalOnWindows</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. HOW TO INSTALL TIDAL ON WINDOWS MACHINES USING CYGWIN</a>
+<ul>
+<li><a href="#sec-1-1">1.1. BASIC TERMINOLOGY</a></li>
+<li><a href="#sec-1-2">1.2. INSTALL CYGWIN</a></li>
+<li><a href="#sec-1-3">1.3. INSTALL PORTAUDIO</a></li>
+<li><a href="#sec-1-4">1.4. INSTALL LIBLO</a></li>
+<li><a href="#sec-1-5">1.5. INSTALL THE DIRT SYNTH</a></li>
+<li><a href="#sec-1-6">1.6. INSTALL THE HASKELL PLATFORM AND TIDAL</a></li>
+<li><a href="#sec-1-7">1.7. INSTALL THE ATOM EDITOR WITH THE TIDAL PACKAGE</a></li>
+<li><a href="#sec-1-8">1.8. RUN TIDAL</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> HOW TO INSTALL TIDAL ON WINDOWS MACHINES USING CYGWIN</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> BASIC TERMINOLOGY</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The procedure followed to run Tidal assumes some basic knowledge of UNIX systems, so it is possible that, as a Windows user, you are not familiar with some terms used here.
+</p>
+
+<p>
+Here is a quick explanation of some keywords:
+</p>
+
+<ul class="org-ul">
+<li>Cygwin: Cygwin is a UNIX-like terminal environment that runs on Windows. Cygwin will create a folder in your C drive which will act like a UNIX system's root drive.
+</li>
+<li>tar, .tar.gz, .tgz: Files ending with <code>.tar.gz</code> or <code>.tgz</code> are compressed files (similar to <code>.zip</code> or <code>.rar</code> files). The command <code>tar</code> is what we will use to un-compress (or un-zip) the compressed files.
+</li>
+<li>wget: <code>wget</code> is a command that is used to download a file from the internet.
+</li>
+<li>configure, make: These are instructions used to compile the source code of a program. You can think of these commands as part of installing an application.
+</li>
+<li>git: You should look into this on your own, but, briefly, the <code>git clone</code> command used here works similar to <code>wget</code>.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> INSTALL CYGWIN</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Download cygwin from <a href="http://cygwin.com/install.html">http://cygwin.com/install.html</a>.
+</p>
+
+<p>
+Once you run the installation, click next until you get promted to install packages. Choose the following packages for installation (use find):
+</p>
+
+<ul class="org-ul">
+<li>wget
+</li>
+<li>tar
+</li>
+<li>emacs
+</li>
+<li>git
+</li>
+<li>gcc
+</li>
+<li>g++
+</li>
+<li>make
+</li>
+<li>libsndfile
+</li>
+<li>libsndfile-devel
+</li>
+<li>libsamplerate
+</li>
+<li>libsamplerate-devel
+</li>
+</ul>
+
+<p>
+While you're at it, install some other useful packages too (you dont need them to run tidal, but it's not a bad idea to have them):
+</p>
+
+<ul class="org-ul">
+<li>gawk
+</li>
+<li>bzip2
+</li>
+<li>ssh
+</li>
+</ul>
+
+<p>
+Then reboot your system.
+</p>
+
+<p>
+Still while you're at it, you can install a useful package called <code>apt-cyg</code>. Once again, this is not required if you just want to run tidal. You may skip this if you want.
+</p>
+
+<p>
+Open cygwin and type:
+</p>
+<pre class="example">
+wget http://apt-cyg.googlecode.com/svn/trunk/apt-cyg
+chmod +x apt-cyg
+mv apt-cyg /usr/local/bin
+</pre>
+
+<p>
+Now, if there is problem with some missing package, you can type:
+</p>
+<pre class="example">
+apt-cyg install &lt;package-name&gt;
+</pre>
+<p>
+where &lt;package-name&gt; is the actual name of the missing package.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> INSTALL PORTAUDIO</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Use wget to download the latest stable version of portaudio from <a href="http://www.portaudio.com">http://www.portaudio.com</a>:
+</p>
+
+<p>
+In cygwin, type:
+</p>
+<pre class="example">
+http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz
+</pre>
+
+<p>
+Note that this is the latest stable version at the time of writing. Before doing that, you should navigate to the page, check which is the actual latest version and alter the above command accordingly.
+</p>
+
+<p>
+Now run:
+</p>
+<pre class="example">
+tar -xvzf pa_stable_v19_20140130.tgz # or whichever is the current version
+cd portaudio
+./configure
+make
+make install
+cd .. # to go back at the home folder
+</pre>
+
+<p>
+Keep an eye out for errors during these steps, because it's possible that you missed a package like gcc or g++.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> INSTALL LIBLO</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+In cygwin, run:
+</p>
+<pre class="example">
+wget http://downloads.sourceforge.net/liblo/liblo-0.28.tar.gz
+</pre>
+
+<p>
+Once again, check if this is the current latest version.
+</p>
+
+<pre class="example">
+tar -xvzf liblo-0.28.tar.gz
+cd liblo-0.28
+./configure
+make
+make install
+cd ..
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> INSTALL THE DIRT SYNTH</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Use git to install Dirt:
+</p>
+<pre class="example">
+git clone http://github.com/yaxu/Dirt.git
+cd Dirt
+make dirt-pa
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> INSTALL THE HASKELL PLATFORM AND TIDAL</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Download and install it from <a href="https://www.haskell.org/platform/">https://www.haskell.org/platform/</a>
+</p>
+
+<p>
+Then reboot your system.
+</p>
+
+<p>
+Open cygwin and run:
+</p>
+<pre class="example">
+cabal update
+cabal install tidal
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> INSTALL THE ATOM EDITOR WITH THE TIDAL PACKAGE</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+As said in the official tidal installation instructions "Atom [&#x2026;] is the recommended options for beginners". So let's go with that.
+</p>
+
+<p>
+Download and install the Atom editor from <a href="https://atom.io">https://atom.io</a>
+</p>
+
+<p>
+Once Atom opens, press <code>Ctrl-,= to open the setting screen. From the drop menu, go to =Install</code> and search for the package <code>tidal</code>. Once you find it, click on <code>install</code>.
+</p>
+
+<p>
+Once it is installed, click on settings (in the <code>tidal</code> box). You will have to change the ghci path.
+</p>
+
+<p>
+Open cygwin and run:
+</p>
+<pre class="example">
+which ghci
+</pre>
+
+<p>
+This should output the ghci path, but relatively to Cygwin. Copy-paste it into Atom, and then change <code>/cygdrive/c</code> to <code>C:</code> and add <code>.exe</code> at the end. Now you are ready to run Tidal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> RUN TIDAL</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Tidal needs the Dirt synth running to work, so open Cygwin and type:
+</p>
+<pre class="example">
+cd Dirt
+./dirt-pa.exe &amp;
+</pre>
+
+<p>
+Then, open a new file in Atom and save it with <code>.tidal</code> in the end (for example <code>test.tidal</code>).
+</p>
+
+<p>
+Then, from the menu bar, go to <code>Packages -&gt; Tidal -&gt; Boot Tidal</code>
+</p>
+
+<p>
+Now type:
+</p>
+<pre class="example">
+d1 $ sound "cp"
+</pre>
+
+<p>
+Then, evaluate the line by pressing <code>Shift-Enter</code>. If everything is OK, you should hear a sound.
+</p>
+
+<p>
+To stop the sound, type <code>hush</code> in a new line and evaluate.
+</p>
+
+<p>
+To get started, go to <a href="http://tidal.lurk.org">http://tidal.lurk.org</a> and visit the <code>Patterns</code>, <code>Reference</code> and <code>HowTos</code> sections. Note that in the documentation you will see something like "press <code>Ctrl-C Ctrl-C</code>". This is Emacs keybindings and they will not work on Atom. In Atom, you use either <code>Shift-Enter</code> to evaluate a single line or <code>Ctrl-Enter</code> to evaluate a region (multiple lines).
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: zob203</p>
+<p class="date">Created: 2015-03-07 Sat 02:26</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

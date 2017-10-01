@@ -1,0 +1,39 @@
+* SETTING UP PIRATEBOX ON RASPBERRY PI
+
+I followed the tutorial found here (as well as in other places, listed in readings): http://n0where.net/piratebox-on-raspberry-pi/
+
+After that, and depending on which wifi dongle you use, you should probably edit the file =/opt/piratebox/conf/hostapd.conf=, so that the line that states the driver used matches you own. If you have already followed the instructions on how to setup an access point in RPi, you could just copy - paste from the original =hostapd.conf= file.
+
+In the same file, you could change the SSID of the network, as well as set up a WPA type passphrase for your network (you wouldn't want to grant free access to anyone, since it's your computer). Again, you can follow the instructions mentioned above, or, if you already did, just copy-paste and edit the original =hostapd.conf= file.
+
+Keep in mind that, by activating piratebox, essentially you just turn the RPi to a piratebox-specific access point. This means that the normal function of hostapd (as stated in the original =hostapd.conf=) is overriden and the piratebox version of =hostapd.conf= is used instead.
+
+Now, if everything is OK, the network's SSID will appear in the list of wi-fi networks on your devices. Connect with your given passphrase, open a browser and type the 192.168.77.1 in the address bar. This should give you the piratebox' starting page. The default uploading directory is =/opt/piratebox/share/Shared=
+
+* TWEEKING IN PROCESS
+
+I want to make piratebox working as a hotspot also, providing other machines with internet access. This is a little bit difficult. First of all, there is this "redirecting" option, which is stupid. To deactivate it, go to =/opt/piratebox/www= and rename the file =redirect.html= to =.redirect.html=. Now there is no silly rerouting... But still no internet! Moving on...
+
+* WATCH OUT
+
+The most complicated thing here, as well as in creating a simple access point, is to find the correct usb wi-fi dongle. There is a list of compatible wi-fi dongles here: http://elinux.org/RPi_USB_Wi-Fi_Adapters
+
+However, you shouldn't just pick one of the list. You should investigate thouroughly for issues related to this particular dongle before buying it, like access point support, working drivers for yur particular kernel version and such. For example, I had a hard time with a TP-Link TL-WN725N v.2. In the above list it says that v.1 works "out of the box", but that's not the case with v.2. It finally worked, mostly by luck, but I don't recommend it.
+
+* READINGS
+
+http://n0where.net/piratebox-on-raspberry-pi/
+
+http://piratebox.cc/raspberry_pi:diy:manual
+
+https://github.com/PirateBox-Dev/PirateBoxScripts_Webserver/tree/master/BuildScripts/RaspberryPi
+
+http://forum.piratebox.cc/read.php?7,11098,11098#msg-11098
+
+http://elinux.org/RPI-Wireless-Hotspot
+
+http://www.raspberrypi.org/forums/viewtopic.php?f=28&t=41868&p=338865
+
+http://www.raspberrypi.org/forums/viewtopic.php?p=462982#p462982
+
+http://www.raspberrypi.org/forums/viewtopic.php?f=91&t=54946

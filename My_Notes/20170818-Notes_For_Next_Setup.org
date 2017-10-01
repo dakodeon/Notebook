@@ -1,0 +1,25 @@
+* NOTES FOR MY NEXT (POSSIBLE) SETUP
+
+Reason: Try something new, get deeper into Linux/Programming, keep track of everything running in my machine, start from scratch to create workflow (programs, editors, file structure)
+
+** SOFTWARE
+- OS: Arch-Linux (or maybe Void Linux -- check systemd/alternatives)
+- File Manager: Ranger (or maybe not...)
+- Window Manager: i3 (or maybe other tile-based)
+- Terminal Emulator: Terminator (so far my best option, check also tmux)
+- Editor: Emacs (if possible from scratch -- read about packages and configurations of prelude)
+
+** FILE STRUCTURE
+Maybe a common partition between linux and windows is not a bad idea. Read about FAT32/NTFS to store Home Folder.
+
+** IDEA ABOUT IMAGE PROCESSING WORKFLOW
+Find out how to use darktable efficintly: Use collections, make contact sheets and books.
+- Collections: Only useful if you can make a collection out of images in different folders (eg according to tag)
+- Contacts and books: Learn about export to LaTeX, and how to tweak with its templates.
+
+1. Scan films as is, folder containing all images from scan session. Maybe add naming indicator for differnet film rolls while scanning.
+2. Import folder in darktable, then run command to hide xmp files.
+3. Use stars, color labels and tags to organize pictures (eg. apply different color to edited pictures, import with 3 stars, give 5 stars to favourites, 0 stars to rejected, tag according to project).
+4. Perform quick selections by exporting in some "Export" folder inside the film roll folder. If a contact is desired, run the script (alternatively check if this is possible using export to LaTeX)
+5. Create symlinks to images (along with .xmp files) in a main project folder. Rename with emacs dired or some other batch rename process to organize. Check renaming capabilities, also running shell command (ln) with lua script.
+6. Alternative project versions should be created with symlinks only to prevent multiple unorganized copies.

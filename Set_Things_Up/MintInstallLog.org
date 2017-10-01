@@ -1,0 +1,102 @@
+* FRESH INSTALL OF LINUX MINT 17.1 - <2015-03-02 Mon>
+
+Machine: Some really old Amilo D laptop with no screen.
+
+
+Machine: A really old Amilo D laptop.
+
+** GET USEFUL APPLICATIONS
+
+1. Run system update (got 400MB)
+2. sudo apt-get install gparted terminator zsh qjackctl
+
+** TWEAK APPEARENCE AND BEHAVIOR
+
+1. Open Control Center
+2. Change stuff in appearence, Languages, Pop-up notifications, Startup applications, Welcome screen, Keyboard, Monitors, Login window, Keyboard shortcuts.
+
+** MAKE ZSH DEFAULT SHELL AND CONFIGURE IT
+
+chsh -s $(which zsh)
+
+Log out and log in again.
+
+Add this to =.zshrc=:
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
+
+#alias for getting pid of running app (use: getpid <appname>)
+alias getpid='ps h -o pid -C'
+
+Log out and login again.
+
+** INSTALL EMACS
+
+Followed my instructions from git repo.
+
+There was an error in =./configure= about tputs. It was solved by installing =libncurses5-dev=.
+
+Remove .emacs.d/ and install prelude:
+: wget --no-check-certificate https://github.com/bbatsov/prelude/raw/master/utils/installer.sh -O - | sh
+
+Then start emacs and let prelude do the basic configuration.
+
+** JACK AUDIO
+
+Followed the instructions from SetThingsUp folder.
+
+** SCEL (SUPERCOLLIDER EMACS MODE)
+
+To enable the sclang mode in emacs:
+1. =sudo apt-get install supercollider=
+You will notice that there is a package called =supercollider-emacs=. You don't want that, as it tries to install an older version of emacs alongside.
+2. Download supercollider source (See RPi_Music_System)
+3. Go to <path to folder>/supercollider/editors/scel
+4. Copy the folder =sc= to =/usr/share/SuperCollider/Extensions= and rename it to =scel=
+5. Copy the folder =el= to =~/.emacs.d= and rename it to =scel=
+6. Go to =~/.emacs.d/scel= and rename the file =sclang-vars.el.in= to =sclang-vars.el=
+7. Go to =/usr/share/SuperCollider/Extension/scel= and rename the file =Document.sc= to =.Document.sc=
+8. Add the following code to your personal init.el:
+: (add-to-list 'load-path "~/.emacs.d/scel"
+: (require 'sclang)
+: (add-hook 'sclang-mode-hook 'sclang-ac-mode)
+9. Add your username to the audio group to enable realtime permissions:
+: sudo usermod -a -G audio <username>
+
+
+* FRESH INSTALL OF LINUX MINT 17.2 - <2015-10-18 Sun>
+
+Machine: Refurbished Fujitsu Lifebook s760 laptop. Dual boot with Windows 7.
+
+Confirmed that all of the above are valid.
+Note: Search for s760 drivers, eg for the mouse.
+
+** ABOUT DUAL BOOT
+
+- Install Windows 7 before Linux.
+- Use a Windows tool (...) to resize the partition.
+- Insert Linux bootable media.
+- Select the option "Install alongside Windows" or something similar.
+
+** CONFIGURE GRUB
+
+Machine: Refurbished Fujitsu Lifebook s760 laptop. Dual boot with Windows 7.
+
+** INSTALL SSH SERVER FOR REMOTE ACCESS
+
+=sudo apt-get install openssh-server=

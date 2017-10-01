@@ -1,0 +1,11 @@
+rodinal dev
+
+fp4 125 to 500 (x2): dil 1+50, 27 min
+
+h5 400 to 1600 (x2): dil 1+50, 25 min
+
+tmax 400 to 1600 (x2): dil 1+25, 12 min
+
+tmax 100 to 400 (x2): dil 1+25, 9 min
+
+academy 200 to 800 (x2): dil 1+50, 45 min...

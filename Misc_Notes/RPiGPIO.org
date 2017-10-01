@@ -1,0 +1,16 @@
+* INSTALL WIRING PI
+  
+  I don't really use this, as I will mostly use python but it has interesting features, like the gpio readall command.
+
+  git clone git://git.drogon.net/wiringPi
+  cd wiringPi
+  ./build
+  
+* READINGS
+
+  http://makezine.com/projects/tutorial-raspberry-pi-gpio-pins-and-python/
+  http://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/
+  http://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
+  http://www.raspberrypi-spy.co.uk/2013/10/analogue-sensors-on-the-raspberry-pi-using-an-mcp3008/
+  http://www.raspberrypi.org/forums/viewtopic.php?f=44&t=54266
+  http://piscopeci2014.pbworks.com/w/page/79442018/MCP3008%20ADC%20Interface

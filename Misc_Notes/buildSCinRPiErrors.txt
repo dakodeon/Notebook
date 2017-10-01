@@ -1,0 +1,31 @@
+How to build supercollider 3.7 alpha on raspberry pi with emacs
+support
+
+I followed the instructions from:
+http://supercollider.github.io/development/building-raspberrypi.html
+
+but I had some issues:
+
+a - I couldn't start jackd after following step 4 (install jack2 from
+github). This was solved "magically" when I installed qjackctl (the
+gui for jack), which automatically reinstalled jack2. Maybe I messed
+up with the initial installation...
+
+b - In step 5 (install sc3.7 alpha0 from github) in the cmake command,
+there are some options like '-DSC_...=OFF'. You should replace
+'DSC_EL=OFF' with 'DSC_EL=ON' for emacs support.
+
+After that you can run supercollider following the instructions.
+
+Unsolved issues:
+There is always a "GUI scheme not installed" or something similar. It
+doesn't affect performance, but is annoying.
+
+For some reason, while working in terminal, I cannot boot the server
+from within emacs. I have to open a shell in emacs, after running
+'emacs -sclang' and follow the instructions in step 6 (start jack &
+sclang & test sound) until I boot the server. After that, sc is
+working in emacs.
+
+I suspect this has to do with the way that sclang is started within emacs: When I start supercollider from the terminal, I start jack first, then scsynth and finally sclang. In emacs, first I start sclang and then jack and then scsynth.
+Also, when starting sc in terminal, if I start sclang first, I get the same error, unless I open another terminal and start jack and scsynth there.

@@ -1,0 +1,134 @@
+* HOW TO INSTALL TIDAL ON WINDOWS MACHINES USING CYGWIN
+
+** BASIC TERMINOLOGY
+
+The procedure followed to run Tidal assumes some basic knowledge of UNIX systems, so it is possible that, as a Windows user, you are not familiar with some terms used here.
+
+Here is a quick explanation of some keywords:
+
+- Cygwin: Cygwin is a UNIX-like terminal environment that runs on Windows. Cygwin will create a folder in your C drive which will act like a UNIX system's root drive.
+- tar, .tar.gz, .tgz: Files ending with =.tar.gz= or =.tgz= are compressed files (similar to =.zip= or =.rar= files). The command =tar= is what we will use to un-compress (or un-zip) the compressed files.
+- wget: =wget= is a command that is used to download a file from the internet.
+- configure, make: These are instructions used to compile the source code of a program. You can think of these commands as part of installing an application.
+- git: You should look into this on your own, but, briefly, the =git clone= command used here works similar to =wget=.
+
+** INSTALL CYGWIN
+
+Download cygwin from http://cygwin.com/install.html.
+
+Once you run the installation, click next until you get promted to install packages. Choose the following packages for installation (use find):
+
+- wget
+- tar
+- emacs
+- git
+- gcc
+- g++
+- make
+- libsndfile
+- libsndfile-devel
+- libsamplerate
+- libsamplerate-devel
+
+While you're at it, install some other useful packages too (you dont need them to run tidal, but it's not a bad idea to have them):
+
+- gawk
+- bzip2
+- ssh
+
+Then reboot your system.
+
+Still while you're at it, you can install a useful package called =apt-cyg=. Once again, this is not required if you just want to run tidal. You may skip this if you want.
+
+Open cygwin and type:
+: wget http://apt-cyg.googlecode.com/svn/trunk/apt-cyg
+: chmod +x apt-cyg
+: mv apt-cyg /usr/local/bin
+
+Now, if there is problem with some missing package, you can type:
+: apt-cyg install <package-name>
+where <package-name> is the actual name of the missing package.
+
+** INSTALL PORTAUDIO
+
+Use wget to download the latest stable version of portaudio from http://www.portaudio.com:
+
+In cygwin, type:
+: http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz
+
+Note that this is the latest stable version at the time of writing. Before doing that, you should navigate to the page, check which is the actual latest version and alter the above command accordingly.
+
+Now run:
+: tar -xvzf pa_stable_v19_20140130.tgz # or whichever is the current version
+: cd portaudio
+: ./configure
+: make
+: make install
+: cd .. # to go back at the home folder
+
+Keep an eye out for errors during these steps, because it's possible that you missed a package like gcc or g++.
+
+** INSTALL LIBLO
+
+In cygwin, run:
+: wget http://downloads.sourceforge.net/liblo/liblo-0.28.tar.gz
+
+Once again, check if this is the current latest version.
+
+: tar -xvzf liblo-0.28.tar.gz
+: cd liblo-0.28
+: ./configure
+: make
+: make install
+: cd ..
+
+** INSTALL THE DIRT SYNTH
+
+Use git to install Dirt:
+: git clone http://github.com/yaxu/Dirt.git
+: cd Dirt
+: make dirt-pa
+
+** INSTALL THE HASKELL PLATFORM AND TIDAL
+
+Download and install it from https://www.haskell.org/platform/
+
+Then reboot your system.
+
+Open cygwin and run:
+: cabal update
+: cabal install tidal
+
+** INSTALL THE ATOM EDITOR WITH THE TIDAL PACKAGE
+
+As said in the official tidal installation instructions "Atom [...] is the recommended options for beginners". So let's go with that.
+
+Download and install the Atom editor from https://atom.io
+
+Once Atom opens, press =Ctrl-,= to open the setting screen. From the drop menu, go to =Install= and search for the package =tidal=. Once you find it, click on =install=.
+
+Once it is installed, click on settings (in the =tidal= box). You will have to change the ghci path.
+
+Open cygwin and run:
+: which ghci
+
+This should output the ghci path, but relatively to Cygwin. Copy-paste it into Atom, and then change =/cygdrive/c= to =C:= and add =.exe= at the end. Now you are ready to run Tidal.
+
+** RUN TIDAL
+
+Tidal needs the Dirt synth running to work, so open Cygwin and type:
+: cd Dirt
+: ./dirt-pa.exe &
+
+Then, open a new file in Atom and save it with =.tidal= in the end (for example =test.tidal=).
+
+Then, from the menu bar, go to =Packages -> Tidal -> Boot Tidal=
+
+Now type:
+: d1 $ sound "cp"
+
+Then, evaluate the line by pressing =Shift-Enter=. If everything is OK, you should hear a sound.
+
+To stop the sound, type =hush= in a new line and evaluate.
+
+To get started, go to http://tidal.lurk.org and visit the =Patterns=, =Reference= and =HowTos= sections. Note that in the documentation you will see something like "press =Ctrl-C Ctrl-C=". This is Emacs keybindings and they will not work on Atom. In Atom, you use either =Shift-Enter= to evaluate a single line or =Ctrl-Enter= to evaluate a region (multiple lines).

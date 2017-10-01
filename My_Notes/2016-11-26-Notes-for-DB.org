@@ -1,0 +1,75 @@
+* PURPOSE
+Creating a database containing all the songs that a collective of bands play, as part of their promotional website.
+
+* POSSIBLE WEBSITE NAMES
+contrabands, contrabajides, contraband collective
+
+* NOTES
+--- Maybe additional song info?
+--- Maybe another db connected with artists info?
+--- Maybe another db with band members? (for various bands)
+
+Check NFs
+
+* FIELDS
+** MAIN DB
+Title, Type, Composer(s), Singer(s), Player(s), Genre(s), Band(s) (our), Links
+
+** BANDS DB
+Name, Genres, Instruments, Members, Links
+--- Think of a way to connect band members with instruments
+
+* EXAMPLES
+** MAIN DB
+=========================
+
+Title: Mikros arravoniastika
+Type: Song
+Composer: Markos Vamvakaris
+Singer: Markos Vamvakaris
+Players: Markos Vamvakaris, Someone else, another one
+Genres: Rempetiko, Hasaposerviko
+Band: Ta aplyta sti fora
+Links: youtube link 1, youtube link 2
+
+========================
+
+Title: Tutti frutti
+Type: Song
+Composer: ???
+Singer: ???
+Players: A bunch of gypsies
+Genres: Balkan, Tsifteteli
+Band: Dodge the bullet
+Links: Link 1, Link 2
+
+==========================
+
+Title: O Meraklis
+Type: Instrumental
+Composer: Spyros Peristeris
+Singer: ---
+Players: Spyros Peristeris, ..., ...
+Genres: Rempetiko, Zeimpekiko
+Band: Ta aplyta sti fora
+Links: ..., ....
+
+==========================
+** BANDS DB
+============================
+
+Band name: Ta aplyta sti fora
+Genre: Rempetiko, Smyrneiko
+Instruments: Mpouzouki, Kithara, Violi, Baglamas, Fones
+Band members: Loui Bazoukas, Manolo Pescatore, Nick de Votanik
+Links: Oi moutsounes mas, videakia klp
+
+=============================
+
+Band name: Dodge the bullet
+Genre: Balkan, Circus punk
+Instruments: Bouzouki, Kithara, Violi, Trompeta, Krousta, Fones
+Band members: Loui Bazoukas, Manolo Pescatore, Nick de Votanik, Alvaropoulos
+Links: mmsodvnsdijfvsdijv, jsgdsd, sdygfesig
+
+=============================
