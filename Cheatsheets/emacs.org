@@ -1,166 +1,165 @@
-* Basic Emacs Commands
-
+* EMACS
 ** Elementary stuff
-- "C" refers to CTRL
-- "M" refers to ALT or ESC
-- "S" refers to WinKey
+ - "C" refers to CTRL
+ - "M" refers to ALT or ESC
+ - "S" refers to WinKey
 
-General quit: C-g
+ General quit: C-g
 
 ** Basic Navigation Commands:
 
-Next page: C-v
-Previous page: M-v
-Center the text around the cursor: C-l (press it again, the text moves
-at the top of the screen and again, it moves at the bottom)
+ Next page: C-v
+ Previous page: M-v
+ Center the text around the cursor: C-l (press it again, the text moves
+ at the top of the screen and again, it moves at the bottom)
 
-Move to the next line: C-n
-Move to the previous line: C-p
-Move one character forward: C-f
-Move one character backwards: C-b
-Move one word forward: M-f
-Move one word backward: M-b
-Move to the beginning of the line: C-a
-Move to the end of the line: C-e
-Move to the beginning of the paragraph: M-a
-Move to the end of the paragraph: M-e
-Move to the beginning of the buffer: M-<
-Move to the end of the buffer: M->
-Go to line: M-g g
+ Move to the next line: C-n
+ Move to the previous line: C-p
+ Move one character forward: C-f
+ Move one character backwards: C-b
+ Move one word forward: M-f
+ Move one word backward: M-b
+ Move to the beginning of the line: C-a
+ Move to the end of the line: C-e
+ Move to the beginning of the paragraph: M-a
+ Move to the end of the paragraph: M-e
+ Move to the beginning of the buffer: M-<
+ Move to the end of the buffer: M->
+ Go to line: M-g g
 
 ** Text Editing:
 
-New line below cursor: C-o
-Delete next character: C-d
-Kill previous word: M-<Delback>
-Kill next word: M-d
-Kill until the end of the line: C-k
-Kill until the end of the paragraph: M-k
-Mark text: C-<Space> at the beginning of the section, move the cursor at the end
-Mark rectangle: C-x <Space>
-Move cursor to the beginning or end of marked text: C-x C-x
-Kill marked text: C-w
-Copy marked text: M-w
-Yank (paste) killed text: C-y --note: When killing multiple lines, they get yanked all together
-Cycle through previous kills (after doing C-y): M-y
-Number region: C-x r N
-Undo: C-/
-Replace a string with another: M-x repl s
-Change language: C-\
-Count words in region: M-=
+ New line below cursor: C-o
+ Delete next character: C-d
+ Kill previous word: M-<Delback>
+ Kill next word: M-d
+ Kill until the end of the line: C-k
+ Kill until the end of the paragraph: M-k
+ Mark text: C-<Space> at the beginning of the section, move the cursor at the end
+ Mark rectangle: C-x <Space>
+ Move cursor to the beginning or end of marked text: C-x C-x
+ Kill marked text: C-w
+ Copy marked text: M-w
+ Yank (paste) killed text: C-y --note: When killing multiple lines, they get yanked all together
+ Cycle through previous kills (after doing C-y): M-y
+ Number region: C-x r N
+ Undo: C-/
+ Replace a string with another: M-x repl s
+ Change language: C-\
+ Count words in region: M-=
 
 ** Files and Buffers:
 
-Find a file: C-x C-f
-Save a file: C-x C-s
-Insert file at cursor position: C-x i
-List all buffers: C-x C-b
-Switch to buffer <buffer>: C-x b <buffer>
-Save some buffers: C-x s
-Recover file (after finding it): M-x recover-file
-Kill current buffer: C-x k
-Forget modification in buffer: M-~
-Save buffer with specified name: C-x C-w
+ Find a file: C-x C-f
+ Save a file: C-x C-s
+ Insert file at cursor position: C-x i
+ List all buffers: C-x C-b
+ Switch to buffer <buffer>: C-x b <buffer>
+ Save some buffers: C-x s
+ Recover file (after finding it): M-x recover-file
+ Kill current buffer: C-x k
+ Forget modification in buffer: M-~
+ Save buffer with specified name: C-x C-w
 
 ** Search:
 
-Search forward: C-s
-Search backward (reverse): C-r
-Query replace: M-% (<SPC> to replace occurency, <DEL> to skip)
+ Search forward: C-s
+ Search backward (reverse): C-r
+ Query replace: M-% (<SPC> to replace occurency, <DEL> to skip)
 
 ** Basic Window Commands:
 
-Kill window: C-x
-Kill window and buffer: C-x 4 0
-Kill all other windows: C-x 1
-New window (horizontal split): C-x 2
-New window (vertical split): C-x 3
-Move to other window: C-x o
-Move to the next page (other window): C-M-v
-Do this to other window: C-x 4 <cmd> (eg. C-x 4 C-f or C-x 4 b etc...)
-Resize window horizontally: C-x } {(or )
-Resize window vertically: C-x ^
-Exit emacs: C-x C-c
-Suspend emacs: C-z
-Resume emacs: 'fg' or '%emacs'
+ Kill window: C-x
+ Kill window and buffer: C-x 4 0
+ Kill all other windows: C-x 1
+ New window (horizontal split): C-x 2
+ New window (vertical split): C-x 3
+ Move to other window: C-x o
+ Move to the next page (other window): C-M-v
+ Do this to other window: C-x 4 <cmd> (eg. C-x 4 C-f or C-x 4 b etc...)
+ Resize window horizontally: C-x } {(or )
+ Resize window vertically: C-x ^
+ Exit emacs: C-x C-c
+ Suspend emacs: C-z
+ Resume emacs: 'fg' or '%emacs'
 
 ** Help:
-Open general help menu (panic button): C-h ?
-List keybindings: C-h b
-Brief description of <cmd>: C-h c <cmd>
-Open documentation <cmd>: C-h k <cmd>
-List commands with keyword: C-h a <keyword>
-Documentation of current major mode: C-h m
-Read included manuals: C-h i
-Find command (where is): C-h w
-Find definition of function: C-h f
+ Open general help menu (panic button): C-h ?
+ List keybindings: C-h b
+ Brief description of <cmd>: C-h c <cmd>
+ Open documentation <cmd>: C-h k <cmd>
+ List commands with keyword: C-h a <keyword>
+ Documentation of current major mode: C-h m
+ Read included manuals: C-h i
+ Find command (where is): C-h w
+ Find definition of function: C-h f
 
 ** Dired (Directory editor):
 
-Start dired: C-x d
-Copy: C
-Mark for erase: d
-Delete right away: D
-Delete marked files: x
-Open file or dir: e or f
-Open file in other window and go there: o
-Open file in other window but stay here: C-o
-View file content: v
-Mark: m
-Unmark: u
-Move to the next line: n
-Query-replace in marked files: Q
-Rename file: R
-Remove all marks: M-<Delback>
-Compare files: =
-Compare file with its backup: M-=
-Apply shell command to file: !
-Change to next marked file: M-}
-Change to previous marked file: M-{
-Create dir: +
-Change to next dir: >
-Change to previous dir: <
-Sort by name or by date: s
-Start wdired mode (easy renaming): C-x C-q
-Finish edit: C-c C-c
-Abort changes: C-c C-k
-Reread dir structure (refresh): g
-Quit dired: q
+ Start dired: C-x d
+ Copy: C
+ Mark for erase: d
+ Delete right away: D
+ Delete marked files: x
+ Open file or dir: e or f
+ Open file in other window and go there: o
+ Open file in other window but stay here: C-o
+ View file content: v
+ Mark: m
+ Unmark: u
+ Move to the next line: n
+ Query-replace in marked files: Q
+ Rename file: R
+ Remove all marks: M-<Delback>
+ Compare files: =
+ Compare file with its backup: M-=
+ Apply shell command to file: !
+ Change to next marked file: M-}
+ Change to previous marked file: M-{
+ Create dir: +
+ Change to next dir: >
+ Change to previous dir: <
+ Sort by name or by date: s
+ Start wdired mode (easy renaming): C-x C-q
+ Finish edit: C-c C-c
+ Abort changes: C-c C-k
+ Reread dir structure (refresh): g
+ Quit dired: q
 
 ** Bookmarks:
-General keybinding: C-x r
-Memorize bookmark: C-x r m
-Jump to bookmark: C-x r b
+ General keybinding: C-x r
+ Memorize bookmark: C-x r m
+ Jump to bookmark: C-x r b
 
 ** Magit
-Start magit: C-x g
-Push: P
-Pull: F
-Update from default branch: u
-Stage changes: s
-Commit: c
+ Start magit: C-x g
+ Push: P
+ Pull: F
+ Update from default branch: u
+ Stage changes: s
+ Commit: c
 
 ** Org-mode:
-Select block (content sensitive): M-h
-Go to target (with refile): C-M g
-Add timestamp in section (goes to agenda): C-c C-.
-Open agenda: C-c a a
-Move through entries in agenda: P, N
-Move to relevant file from agenda entry: TAB
+ Select block (content sensitive): M-h
+ Go to target (with refile): C-M g
+ Add timestamp in section (goes to agenda): C-c C-.
+ Open agenda: C-c a a
+ Move through entries in agenda: P, N
+ Move to relevant file from agenda entry: TAB
 
 ** Projectile
-Projectile commands: C-c p <key>
+ Projectile commands: C-c p <key>
 
 ** Code
-Select block (then press num key to expand): C-M Space
-Move down a level: C-M d
-Move up a level: C-M u
-Move to next block: C-M f
-Move to previous block: C-M b
-Kill block: C-M k
-Indent region: C-M \
-Comment region (toggle): M-;
+ Select block (then press num key to expand): C-M Space
+ Move down a level: C-M d
+ Move up a level: C-M u
+ Move to next block: C-M f
+ Move to previous block: C-M b
+ Kill block: C-M k
+ Indent region: C-M \
+ Comment region (toggle): M-;
 
 ** Jump around
-jj: jump to char in the beginning of a word
-jk: jump to char everywhere
+ jj: jump to char in the beginning of a word
+ jk: jump to char everywhere
