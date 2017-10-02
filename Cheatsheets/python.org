@@ -1,0 +1,101 @@
+* PYTHON USEFUL STUFF (MISC)
+
+** PERIODICAL TIME-BASED EVENTS
+1. Simple implemetation, actual time depends on the code executed. Another solution (more aqurate but complex) involves threading (see URL).
+
+import time
+
+#+BEGIN_SRC python
+t0 = time.time()
+while game.running:
+    t1 = time.time()
+    if (t1-t0) >= 60.0:
+        game.wood += 1
+        t0 = t1 
+    game.process()
+#+END_SRC
+
+- Source: https://stackoverflow.com/questions/15795404/how-to-make-an-action-happen-every-minute-in-python
+
+** MOST FREQUENT NUMBER IN A LIST
++ Use the collections library. I have implemented this in the RPi Sensors project, see there for more info.
+
+#+BEGIN_SRC python
+from collections import Counter
+a = [1,2,3,1,2,1,1,1,3,2,2,1]
+b = Counter(a)
+print b.most_common(1)
+#+END_SRC
+
+- Source: https://stackoverflow.com/questions/6252280/find-the-most-frequent-number-in-a-numpy-vector
+
+** THREADED PROGRAMMING
++ Simple example of a threaded process. In my experience it doesn't work so well, but is useful to know. Tried this one on the sensors project, but with 8 or so threads it was really slow.
+
+#+BEGIN_SRC python
+import time
+from threading import Thread
+
+def myfunc(i):
+    print "sleeping 5 sec from thread %d" % i
+    time.sleep(5)
+    print "finished sleeping from thread %d" % i
+
+for i in range(10):
+    t = Thread(target=myfunc, args=(i,))
+    t.start()
+#+END_SRC
+
+- Source: https://www.saltycrane.com/blog/2008/09/simplistic-python-thread-example/
+
+** SCALE IMAGE (KEEP ASPECT RATIO)
++ This is useful because the thumbnail function fits image in given size. Requires the Pillow library. Note the "Image.ANTIALIAS" parameter: This enhances quality, without it the result is un-watchable.
+
+#+BEGIN_SRC python
+import os
+from PIL import Image
+
+im = Image.open(in_file)
+im.thumbnail(size, Image.ANTIALIAS)
+im.save(out_file)
+#+END_SRC
+
+- Source: https://stackoverflow.com/questions/273946/how-do-i-resize-an-image-using-pil-and-maintain-its-aspect-ratio
+
+** ITERATE THROUGH FILES IN DIRECTORY
+1. All files in directory
+
+#+BEGIN_SRC python
+import os
+for filename in os.listdir(path):
+    # code goes here
+#+END_SRC
+
+2. Only files of specific type:
+
+#+BEGIN_SRC python
+import glob, os
+
+for filename in glob.glob(os.path.join(path, "*.txt")):
+    # code goes here
+#+END_SRC
+
+- Source: https://stackoverflow.com/questions/18262293/python-open-every-file-in-a-folder
+
+** VARIOUS COMMANDS
+*** LISTS
+- List length: len(my_list)
+- Add single element: my_list.append(x)
+- Add multiple elements: my_list.extend([x, y])
+- Make string from list with separator (no numbers): s = ", ".join(my_list)
+- Element-wise multiplication: x = [a*b for a,b in zip(my_list_a, my_list_b)]
+*** FILE OPERATIONS
+- Get filename of a path: os.path.basename(path)
+- Get containing directory of a path: os.path.dirname(path)
+- Find if directory exists: os.path.isdir(path)
+- Find if file exists: os.path.exists("/path/to/file.txt")
+- Remove file: os.remove("/path/to/file.txt")
+- Remove empty dir: os.rmdir(path)
+- Remove dir with contents: shutil.rmtree(path)
+- Make dir: os.mkdir(path)
+- Call shell command: os.system("some_command_with_params")
