@@ -1,0 +1,36 @@
+* All new stuff I use in my current setup
+
+** New RICE stuff
+   :PROPERTIES:
+   :DATE:     <2017-10-14 Sat 20:32>
+   :END:
+
+*** Themes
+All themes are in =~/.themes=
+- Arc-Vaganza
+https://www.gnome-look.org/p/1177474/
+Nice dark theme, but the fluorescent blue selected items are painful for the eyes.
+- Ant
+https://www.gnome-look.org/p/1099856/
+Nice flat theme, but this pink color in the menus is crappy.
+- T4G-Theme (used)
+https://www.gnome-look.org/p/1168746/
+I like this theme's color palette, but the menus and pop-up texts look like crap. I will replace it soon.
+
+*** Icons
+- Papirus
+https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+
+Also used the Papirus icons for SMPlayer and LibreOffice (see instructions in github page)
+
+One problem with thunderbird tray icon: the default icon for this is a crappy bell, so I had to override it: I found a nice thunderbird icon with alpha channel in google.
+
+*** Mouse cursors
+I tried really hard to find a nice cursor set, I downloaded some, but none was what I looked for. Sticking up with the default DMZ-Black for now.
+
+*** Fonts
+Search for these fonts in Google fonts.
+- Jura (default)
+Set this as the default font for i3 and GTK applications. Nice futuristic look with Greek support. Using the Light version.
+- Adel (i3 status bar)
+Simple, modern and condensed font with no changes in width, nice to have a concentrated and stable bar.
