@@ -1,4 +1,4 @@
-* RICE
+* RICING
 
 ** Themes
 
@@ -27,3 +27,7 @@ Search for these fonts in Google fonts.
 Set this as the default font for i3 and GTK applications. Nice futuristic look with Greek support. Using the Light version.
 - Adel (i3 status bar)
 Simple, modern and condensed font with no changes in width, nice to have a concentrated and stable bar.
+
+* ORGANIZING
+** mp3 tagging
+Started using the id3v2 tool to tag mp3. Installed with apt-get.
