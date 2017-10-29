@@ -61,4 +61,6 @@ Unresolved: eyeD3 has a rename option, by which you can rename the song file usi
 
 - Started to add all my known flash drives and external hard disks to the =fstab= file. Using the options =auto,nobootwait,users=. auto to automount on boot, nobootwait to not freeze in boot if drive is not present and users so that anyone is permitted to mount / unmount them, not only sudo.
 
-- Wrote a shell script to find any drives connected and mount them. Had to mess with =sudoers= (edit by typing =sudo visudo= in a terminal) so that my user can run some sudo commands without being asked for password
+- Wrote a shell script to find any drives connected and mount them. Had to mess with =sudoers= (edit by typing =sudo visudo= in a terminal) so that my user can run some sudo commands without being asked for password.
+
+- Also added a script to unmount specific, or all, drives. Unresolved: when a drive is mounted on startup, the directory is write-protected, so you need root privilege to delete it (it doesn't really matter since the only directories created that way are the ones present in fstab, but still...)
