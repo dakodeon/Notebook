@@ -20,6 +20,26 @@ One problem with thunderbird tray icon: the default icon for this is a crappy be
 
 I tried really hard to find a nice cursor set, I downloaded some, but none was what I looked for. Sticking up with the default DMZ-Black for now.
 
+** Themes
+
+Using new theme: Mona
+https://www.gnome-look.org/p/1013687/
+
+It is the best looking theme I found. Colors are nice, display of pop up windows, menus, messages is great.
+
+** Icons
+
+- Papirus
+https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+
+Also used the Papirus icons for SMPlayer and LibreOffice (see instructions in github page)
+
+One problem with thunderbird tray icon: the default icon for this is a crappy bell, so I had to override it: I found a nice thunderbird icon with alpha channel in google.
+
+** Mouse cursors
+
+I tried really hard to find a nice cursor set, I downloaded some, but none was what I looked for. Sticking up with the default DMZ-Black for now.
+
 ** Fonts
 
 Search for these fonts in Google fonts.
@@ -30,4 +50,15 @@ Simple, modern and condensed font with no changes in width, nice to have a conce
 
 * ORGANIZING
 ** mp3 tagging
-Started using the id3v2 tool to tag mp3. Installed with apt-get.
+
+- Started using the id3v2 tool to tag mp3. Installed with apt-get.
+- Now using eyeD3 to tag mp3. Better support for UTF-8 characters, as well as easy setting of all fields. Install with pip: =sudo pip install eyeD3=
+Note: There was a problem with UTF-8 encoding, which was solved after upgrading eyeD3: =sudo pip install --upgrade eyeD3=
+Stopped using id3v2, apparently it doesn't support ID3v2.4. Using eyeD3 also for querying tags. I use the 'album artist' property instead of 'composer' for display purposes.
+Unresolved: eyeD3 has a rename option, by which you can rename the song file using its tags. It gives an error for non-ascii characters.
+
+** mounting drives
+
+- Started to add all my known flash drives and external hard disks to the =fstab= file. Using the options =auto,nobootwait,users=. auto to automount on boot, nobootwait to not freeze in boot if drive is not present and users so that anyone is permitted to mount / unmount them, not only sudo.
+
+- Wrote a shell script to find any drives connected and mount them. Had to mess with =sudoers= (edit by typing =sudo visudo= in a terminal) so that my user can run some sudo commands without being asked for password

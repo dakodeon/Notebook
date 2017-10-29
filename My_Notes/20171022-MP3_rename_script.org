@@ -1,0 +1,16 @@
+* TODO: A script to rename mp3 files
+  :PROPERTIES:
+  :DATE:     <2017-10-22 Sun 02:43>
+  :END:
+
+1. Check for <artist> and <title>.
+   - False: exit.
+   - True: $title = " - <title>", $artist = "<artist>"
+2. Check for <composer>.
+   - True: Check if <composer> == $artist.
+     - False: $artist = "<composer (" + $artist + ")"
+3. $title = $artist + $title
+4. Check for <track number>.
+   - True: $title = "<track number> - " + $title
+5. Rename file to $title
+6. Exit

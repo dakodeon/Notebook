@@ -1,0 +1,6 @@
+* TODO: Notes for my dotfiles repo
+  :PROPERTIES:
+  :DATE:     <2017-10-26 Thu 13:21>
+  :END:
+
+Make a normal repository and use hardlinks to this from the original position of the files. Use readme to list the correct paths.
